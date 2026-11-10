@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f8f5ef" />
+<title>UR_VIDEO_KZ — CRM</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark">✦</div><div><b>UR_VIDEO_KZ</b><small>Рабочее пространство</small></div></div>
+    <div class="side-label">РАБОТА</div>
+    <button class="nav active" data-page="production">▦ <span>Производство</span></button>
+    <button class="nav" data-page="sales">◉ <span>Продажи</span></button>
+    <button class="nav" data-page="clients">♙ <span>Клиенты</span></button>
+    <div class="side-label">УПРАВЛЕНИЕ</div>
+    <button class="nav" data-page="tasks">☷ <span>Задачи</span></button>
+    <button class="nav" data-page="money">₸ <span>Деньги</span></button>
+    <button class="nav" data-page="templates">▤ <span>Шаблоны</span></button>
+    <div class="sidebar-bottom"><div class="avatar">U</div><div><b>Владелец</b><small>UR_VIDEO_KZ</small></div><span class="dots">•••</span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <div class="page-heading"><span class="heading-icon">✦</span><div><h1 id="pageTitle">Производство</h1><small id="pageSubtitle">Контроль каждого видео — от заявки до отправки</small></div></div>
+      <div class="top-actions"><span class="today" id="today"></span><button class="outline-btn" id="exportBtn">Экспорт</button><button class="dark-btn" id="addOrderBtn">＋ Новый заказ</button></div>
+    </header>
+    <section class="content" id="content"></section>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="modal">
+  <div class="modal">
+    <div class="modal-head"><div><h2 id="modalTitle">Новый заказ</h2><p>Добавьте информацию о клиенте и видео</p></div><button class="close" id="closeModal">×</button></div>
+    <form id="orderForm">
+      <input type="hidden" id="orderId">
+      <div class="form-grid">
+        <label>Имя клиента<input id="clientName" required placeholder="Например, Алия"></label>
+        <label>Телефон<input id="phone" placeholder="+7 700 000 00 00"></label>
+        <label>Название / идея видео<input id="videoTitle" required placeholder="Кинематографичный ролик"></label>
+        <label>Дата сдачи<input id="dueDate" type="date"></label>
+        <label>Стоимость, ₸<input id="price" type="number" min="0" value="6000"></label>
+        <label>Предоплата, ₸<input id="paid" type="number" min="0" value="0"></label>
+        <label>Тип ролика<select id="videoType"><option>Birthday Video</option><option>Детское видео</option><option>Юбилей</option><option>Другое</option></select></label>
+        <label>Статус<select id="status"><option value="queue">В очереди</option><option value="work">В работе</option><option value="review">Кадр на согласовании</option><option value="ready">Готов, не отправлен</option><option value="done">Завершён</option></select></label>
+      </div>
+      <label>Пожелания клиента<textarea id="notes" rows="3" placeholder="Стиль, музыка, текст, особые пожелания..."></textarea></label>
+      <div class="modal-actions"><button type="button" class="outline-btn" id="cancelModal">Отмена</button><button class="dark-btn" type="submit">Сохранить заказ</button></div>
+    </form>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body></html>
